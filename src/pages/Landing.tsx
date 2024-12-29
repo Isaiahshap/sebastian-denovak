@@ -8,72 +8,86 @@ const Landing: React.FC = () => {
       className="h-screen w-screen relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.8 }}
     >
-      <motion.div 
-        className="absolute inset-0 bg-cover bg-center"
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center brightness-[0.95] contrast-[1.05]"
         style={{
-          backgroundImage: `url('/images/landing.jpg')`,
-          filter: 'brightness(0.7)'
+          backgroundImage: `url('/images/landing.jpg')`
         }}
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
       />
       
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+      {/* Overlay - Increased opacity for better contrast */}
+      <div className="absolute inset-0 bg-white/90" />
+      
+      {/* Content Container - Darker text for better contrast */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-neutral-900">
         <motion.h1 
-          className="text-7xl font-light mb-4"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          className="text-8xl font-light tracking-wider mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          aria-label="Sebastian Denoväk"
         >
           SEBASTIAN DENOVÄK
         </motion.h1>
         
         <motion.p 
-          className="text-xl tracking-widest mb-12"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.7 }}
+          className="text-xl tracking-[0.3em] mb-16 font-normal text-neutral-800"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
           SURREAL PHOTOGRAPHY
         </motion.p>
         
         <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.9 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
         >
           <Link 
             to="/personal" 
-            className="border border-white px-12 py-3 hover:bg-white hover:text-black transition-all duration-300"
+            className="border-2 border-neutral-600 px-16 py-3 hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transition-all duration-300 tracking-widest text-sm text-neutral-800 font-medium"
+            aria-label="Enter site"
           >
             ENTER
           </Link>
         </motion.div>
 
         <motion.div 
-          className="absolute bottom-8 flex space-x-6"
+          className="absolute bottom-16 flex space-x-12"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
         >
           <a 
             href="#" 
-            className="text-white hover:text-gray-300 transition-colors"
+            className="text-neutral-800 hover:text-neutral-900 hover:underline transition-colors duration-300 tracking-wider text-sm font-medium"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit Instagram profile"
           >
-            Instagram
+            INSTAGRAM
           </a>
           <a 
             href="#" 
-            className="text-white hover:text-gray-300 transition-colors"
+            className="text-neutral-800 hover:text-neutral-900 hover:underline transition-colors duration-300 tracking-wider text-sm font-medium"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit Facebook profile"
           >
-            Facebook
+            FACEBOOK
+          </a>
+          <a 
+            href="#" 
+            className="text-neutral-800 hover:text-neutral-900 hover:underline transition-colors duration-300 tracking-wider text-sm font-medium"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit Twitter profile"
+          >
+            TWITTER
           </a>
         </motion.div>
       </div>
