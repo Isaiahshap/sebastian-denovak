@@ -8,7 +8,7 @@ const Landing: React.FC = () => {
       className="h-screen w-screen relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 1.2, ease: "easeOut" }}
     >
       {/* Background Image */}
       <div 
@@ -27,7 +27,7 @@ const Landing: React.FC = () => {
           className="text-4xl md:text-8xl font-light tracking-wider mb-4 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           aria-label="Sebastian Denoväk"
         >
           SEBASTIAN DENOVÄK
@@ -36,17 +36,17 @@ const Landing: React.FC = () => {
         
         <motion.p 
           className="text-base md:text-xl tracking-[0.3em] mb-12 md:mb-16 font-normal text-neutral-800 text-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         >
           SURREAL PHOTOGRAPHY
         </motion.p>
         
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
         >
           <Link 
             to="/personal" 
@@ -59,9 +59,9 @@ const Landing: React.FC = () => {
 
         <motion.div 
           className="absolute bottom-8 md:bottom-16 flex space-x-8 md:space-x-12"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
         >
           <a 
             href="https://instagram.com/yeshaya_" 
