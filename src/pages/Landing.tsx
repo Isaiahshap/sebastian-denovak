@@ -63,7 +63,7 @@ const Landing: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
         >
           <a 
-            href="#" 
+            href="https://instagram.com/yeshaya_" 
             className="text-neutral-800 hover:text-neutral-900 hover:underline transition-colors duration-300 tracking-wider text-sm font-medium"
             target="_blank"
             rel="noopener noreferrer"
@@ -72,22 +72,13 @@ const Landing: React.FC = () => {
             INSTAGRAM
           </a>
           <a 
-            href="#" 
+            href="https://www.facebook.com/share/12C8wx5XrYM/?mibextid=wwXIfr" 
             className="text-neutral-800 hover:text-neutral-900 hover:underline transition-colors duration-300 tracking-wider text-sm font-medium"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Facebook profile"
           >
             FACEBOOK
-          </a>
-          <a 
-            href="#" 
-            className="text-neutral-800 hover:text-neutral-900 hover:underline transition-colors duration-300 tracking-wider text-sm font-medium"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit Twitter profile"
-          >
-            TWITTER
           </a>
         </motion.div>
       </div>

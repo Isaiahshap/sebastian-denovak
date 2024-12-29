@@ -146,7 +146,7 @@ const NavbarContent: React.FC<{
           </Link>
           <div className="flex space-x-6 pt-6 text-neutral-500">
             <a 
-              href="#" 
+              href="https://instagram.com/yeshaya_" 
               className="hover:text-neutral-800 transition-colors tracking-wide"
               target="_blank"
               rel="noopener noreferrer"
@@ -155,7 +155,7 @@ const NavbarContent: React.FC<{
               Instagram
             </a>
             <a 
-              href="#" 
+              href="https://www.facebook.com/share/12C8wx5XrYM/?mibextid=wwXIfr" 
               className="hover:text-neutral-800 transition-colors tracking-wide"
               target="_blank"
               rel="noopener noreferrer"

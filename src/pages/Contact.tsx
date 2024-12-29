@@ -1,92 +1,149 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
-type FormData = {
-  name: string;
-  email: string;
-  message: string;
-};
-
 const Contact: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // handle form submission logic here
-    console.log("Form Data:", formData);
-  };
-
   return (
-    <motion.section
-      className="container mx-auto px-4 py-16"
+    <motion.div
+      className="md:pl-64 min-h-screen bg-[#f5f5f0]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7 }}
     >
-      <h2 className="text-4xl font-semibold text-center mb-8">Contact</h2>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-md mx-auto bg-neutral-800 p-6 rounded-lg"
-      >
-        <div className="mb-4">
-          <label className="block text-sm mb-2" htmlFor="name">
-            Name
-          </label>
-          <input
-            id="name"
-            type="text"
-            className="w-full p-2 rounded bg-neutral-700 focus:outline-none"
-            value={formData.name}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, name: e.target.value }))
-            }
-          />
-        </div>
+      <div className="p-8 max-w-4xl">
+        <h1 className="text-3xl font-light mb-8 text-neutral-800">Contact</h1>
+        
+        <div className="space-y-12">
+          {/* Contact Info Section */}
+          <motion.div
+            initial={{ 
+              opacity: 0,
+              y: 50,
+              scale: 0.95
+            }}
+            animate={{ 
+              opacity: 1,
+              y: 0,
+              scale: 1
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.15,
+              ease: [0.215, 0.61, 0.355, 1]
+            }}
+            className="space-y-4"
+          >
+            <h2 className="text-2xl font-light text-neutral-800">Get in Touch</h2>
+            <p className="text-neutral-600 leading-relaxed">
+              For inquiries about commissioned work, collaborations, or any questions,
+              please feel free to reach out through any of the following channels:
+            </p>
+          </motion.div>
 
-        <div className="mb-4">
-          <label className="block text-sm mb-2" htmlFor="email">
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            className="w-full p-2 rounded bg-neutral-700 focus:outline-none"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, email: e.target.value }))
-            }
-          />
-        </div>
+          {/* Contact Methods */}
+          <motion.div
+            initial={{ 
+              opacity: 0,
+              y: 50,
+              scale: 0.95
+            }}
+            animate={{ 
+              opacity: 1,
+              y: 0,
+              scale: 1
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.3,
+              ease: [0.215, 0.61, 0.355, 1]
+            }}
+            className="grid md:grid-cols-2 gap-8"
+          >
+            <div className="space-y-2">
+              <h3 className="text-xl font-light text-neutral-800">Email</h3>
+              <p className="text-neutral-600">contact@sebastiandenovak.com</p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xl font-light text-neutral-800">Phone</h3>
+              <p className="text-neutral-600">+1 (555) 123-4567</p>
+            </div>
+          </motion.div>
 
-        <div className="mb-4">
-          <label className="block text-sm mb-2" htmlFor="message">
-            Message
-          </label>
-          <textarea
-            id="message"
-            className="w-full p-2 rounded bg-neutral-700 focus:outline-none"
-            rows={5}
-            value={formData.message}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, message: e.target.value }))
-            }
-          />
-        </div>
+          {/* Social Media */}
+          <motion.div
+            initial={{ 
+              opacity: 0,
+              y: 50,
+              scale: 0.95
+            }}
+            animate={{ 
+              opacity: 1,
+              y: 0,
+              scale: 1
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.45,
+              ease: [0.215, 0.61, 0.355, 1]
+            }}
+            className="space-y-4"
+          >
+            <h2 className="text-2xl font-light text-neutral-800">Social Media</h2>
+            <div className="flex space-x-8">
+              <a 
+                href="https://instagram.com/yeshaya_" 
+                className="text-neutral-600 hover:text-neutral-900 transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram
+              </a>
+              <a 
+                href="https://www.facebook.com/share/12C8wx5XrYM/?mibextid=wwXIfr" 
+                className="text-neutral-600 hover:text-neutral-900 transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Facebook
+              </a>
+              <a 
+                href="#" 
+                className="text-neutral-600 hover:text-neutral-900 transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Twitter
+              </a>
+            </div>
+          </motion.div>
 
-        <motion.button
-          type="submit"
-          className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 w-full"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          Send
-        </motion.button>
-      </form>
-    </motion.section>
+          {/* Location */}
+          <motion.div
+            initial={{ 
+              opacity: 0,
+              y: 50,
+              scale: 0.95
+            }}
+            animate={{ 
+              opacity: 1,
+              y: 0,
+              scale: 1
+            }}
+            transition={{
+              duration: 0.6,
+              delay: 0.6,
+              ease: [0.215, 0.61, 0.355, 1]
+            }}
+            className="space-y-4"
+          >
+            <h2 className="text-2xl font-light text-neutral-800">Location</h2>
+            <p className="text-neutral-600 leading-relaxed">
+              Based in Stockholm, Sweden<br />
+              Available for projects worldwide
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </motion.div>
   );
 };
 
