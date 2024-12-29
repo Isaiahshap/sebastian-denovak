@@ -23,18 +23,30 @@ const Navbar: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >
-        <div className="space-y-2">
+        <div className="relative w-8 h-6">
           <motion.span 
-            className="block w-8 h-0.5 bg-neutral-800"
-            animate={{ rotate: isOpen ? 45 : 0, translateY: isOpen ? 8 : 0 }}
+            className="absolute left-0 block w-8 h-0.5 bg-neutral-800"
+            style={{ top: "0%" }}
+            animate={{ 
+              rotate: isOpen ? 45 : 0,
+              top: isOpen ? "50%" : "0%",
+              translateY: isOpen ? "-50%" : "0"
+            }}
           />
           <motion.span 
-            className="block w-8 h-0.5 bg-neutral-800"
-            animate={{ opacity: isOpen ? 0 : 1 }}
+            className="absolute left-0 top-1/2 -translate-y-1/2 block w-8 h-0.5 bg-neutral-800"
+            animate={{ 
+              opacity: isOpen ? 0 : 1
+            }}
           />
           <motion.span 
-            className="block w-8 h-0.5 bg-neutral-800"
-            animate={{ rotate: isOpen ? -45 : 0, translateY: isOpen ? -8 : 0 }}
+            className="absolute left-0 block w-8 h-0.5 bg-neutral-800"
+            style={{ bottom: "0%" }}
+            animate={{ 
+              rotate: isOpen ? -45 : 0,
+              bottom: isOpen ? "50%" : "0%",
+              translateY: isOpen ? "50%" : "0"
+            }}
           />
         </div>
       </button>
@@ -53,14 +65,99 @@ const Navbar: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-white/95 backdrop-blur-md z-40 md:hidden"
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed inset-0 bg-white backdrop-blur-lg z-40 md:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <div className="p-12 pt-24">
-              <NavbarContent location={location} onLinkClick={() => setIsOpen(false)} />
+            <div className="p-8 pt-28 flex flex-col h-full">
+              <div className="flex flex-col space-y-8">
+                <Link 
+                  to="/" 
+                  className="text-3xl font-light tracking-wide text-neutral-900 hover:text-neutral-600 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Sebastian Denoväk
+                </Link>
+                
+                <motion.div 
+                  className="text-sm text-neutral-500 uppercase tracking-[0.2em] mb-12"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.1 }}
+                >
+                  Surreal Photography
+                </motion.div>
+              </div>
+
+              <div className="flex flex-col space-y-8 mt-8">
+                {timelineLinks.map((link, index) => (
+                  <motion.div
+                    key={link.path}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 + 0.2 }}
+                  >
+                    <Link
+                      to={link.path}
+                      className={`text-xl tracking-wide transition-colors ${
+                        location.pathname === link.path 
+                          ? "text-neutral-900 font-normal" 
+                          : "text-neutral-500 hover:text-neutral-800"
+                      }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.period}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="mt-auto">
+                <div className="flex flex-col space-y-8">
+                  <Link 
+                    to="/about" 
+                    className={`text-xl tracking-wide transition-colors ${
+                      location.pathname === '/about' 
+                        ? "text-neutral-900 font-normal" 
+                        : "text-neutral-500 hover:text-neutral-800"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    About
+                  </Link>
+                  <Link 
+                    to="/contact" 
+                    className={`text-xl tracking-wide transition-colors ${
+                      location.pathname === '/contact' 
+                        ? "text-neutral-900 font-normal" 
+                        : "text-neutral-500 hover:text-neutral-800"
+                    }`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Contact
+                  </Link>
+                  <div className="flex space-x-8 pt-8 text-neutral-500">
+                    <a 
+                      href="https://instagram.com/yeshaya_" 
+                      className="hover:text-neutral-800 transition-colors tracking-wide text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Instagram
+                    </a>
+                    <a 
+                      href="https://www.facebook.com/share/12C8wx5XrYM/?mibextid=wwXIfr" 
+                      className="hover:text-neutral-800 transition-colors tracking-wide text-sm"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Facebook
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </motion.div>
         )}

@@ -61,7 +61,7 @@ const Favorites: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7 }}
     >
-      <div className="p-8">
+      <div className="p-8 pt-24 md:pt-8">
         <h1 className="text-3xl font-light mb-8 text-neutral-800">Favorites</h1>
         <Masonry
           breakpointCols={breakpointColumns}

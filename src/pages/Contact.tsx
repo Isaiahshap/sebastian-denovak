@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.7 }}
     >
-      <div className="p-8 max-w-4xl">
+      <div className="p-8 pt-24 md:pt-8 max-w-4xl">
         <h1 className="text-3xl font-light mb-8 text-neutral-800">Contact</h1>
         
         <div className="space-y-12">
